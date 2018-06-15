@@ -1,7 +1,7 @@
-import UserTypes from './user';
+import TodoTypes from "./todo";
 
-export {UserTypes};
+export { TodoTypes };
 
 export default {
-  UserTypes,
+  TodoTypes,
 };
