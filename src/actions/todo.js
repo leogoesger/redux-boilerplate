@@ -1,3 +1,5 @@
+import request from "superagent";
+
 import { TodoTypes as types } from "../action-types";
 
 const fetchTodoObjects = todos => {
@@ -10,13 +12,11 @@ const fetchTodoObjects = todos => {
 export function fetchTodos() {
   return async dispatch => {
     try {
+      const todosFromAPI = await request.get(
+        "https://ron-swanson-quotes.herokuapp.com/v2/quotes"
+      );
       // pretent this is an api call...
-      const todosFromAPI = [
-        "do something1",
-        "do something 2",
-        "do something 3",
-      ];
-      dispatch(fetchTodoObjects(todosFromAPI));
+      dispatch(fetchTodoObjects(todosFromAPI.body));
     } catch (e) {
       throw e;
     }
