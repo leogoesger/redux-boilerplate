@@ -30,6 +30,7 @@ export default {
       sample: "./.env.default",
       path: "./.env.prod",
     }),
+
     // Hash the files using MD5 so that their names change when the content changes.
     new WebpackMd5Hash(),
 
@@ -37,7 +38,7 @@ export default {
     new webpack.DefinePlugin(GLOBALS),
 
     // Generate an external css file with a hash in the filename
-    new ExtractTextPlugin("[name].[contenthash].css"),
+    new ExtractTextPlugin("[name].[md5:contenthash:hex:20].css"),
 
     // Generate HTML file that contains references to generated bundles. See here for how this works: https://github.com/ampedandwired/html-webpack-plugin#basic-usage
     new HtmlWebpackPlugin({
@@ -59,9 +60,6 @@ export default {
       // To track JavaScript errors via TrackJS, sign up for a free trial at TrackJS.com and enter your token below.
       trackJSToken: "",
     }),
-
-    // Minify JS
-    new webpack.optimize.UglifyJsPlugin({ sourceMap: true }),
   ],
   module: {
     rules: [
