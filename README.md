@@ -22,3 +22,5 @@ If you use windows computer, you might not need to do anything to run this app. 
   If you already have Visual Studio installed:
   Open Visual Studio and go to File -> New -> Project -> Visual C++ -> Install Visual C++ Tools for Windows Desktop.
   The C++ compiler is used to compile browser-sync (and perhaps other Node modules).
+
+This is a project forked from react-slingshot to teach at UC DAVIS Bootcamp.
